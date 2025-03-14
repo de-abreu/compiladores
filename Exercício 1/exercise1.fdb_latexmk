@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber exercise1"] 1741962483.769 "exercise1.bcf" "exercise1.bbl" "exercise1" 1741963492.27174 2
-  "exercise1.bcf" 1741963492.20346 107255 07a846955391bf9e02fb0c9f5893d8ea "pdflatex"
+["biber exercise1"] 1741962483.769 "exercise1.bcf" "exercise1.bbl" "exercise1" 1741968372.93781 2
+  "exercise1.bcf" 1741968372.86238 107255 07a846955391bf9e02fb0c9f5893d8ea "pdflatex"
   (generated)
   "exercise1.bbl"
   "exercise1.blg"
   (rewritten before read)
-["pdflatex"] 1741963491.4178 "exercise1.tex" "exercise1.pdf" "exercise1" 1741963492.27211 0
+["pdflatex"] 1741968372.03938 "exercise1.tex" "exercise1.pdf" "exercise1" 1741968372.93818 0
   "/nix/store/i6zf8b65yb6r5zvfglxh5hvxcps1wab6-texlive-2023-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 334042 0c37b4671e4ed59db46960e494791ddd ""
   "/nix/store/i6zf8b65yb6r5zvfglxh5hvxcps1wab6-texlive-2023-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8021398 691b63300f7b302a43910472c9f58005 ""
   "/nix/store/i6zf8b65yb6r5zvfglxh5hvxcps1wab6-texlive-2023-env/share/texmf-var/web2c/texmf.cnf" 1 42643 0fd7100c2ccec1c137439d110cf1a7f8 ""
@@ -84,10 +84,10 @@
   "/nix/store/v4zz2z6fz873r15ilg25sp40jwpj51sl-texlive-2023-env-texmfdist/tex/latex/logreq/logreq.def" 1 1620 fb1c32b818f2058eca187e5c41dfae77 ""
   "/nix/store/v4zz2z6fz873r15ilg25sp40jwpj51sl-texlive-2023-env-texmfdist/tex/latex/logreq/logreq.sty" 1 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
   "/nix/store/v4zz2z6fz873r15ilg25sp40jwpj51sl-texlive-2023-env-texmfdist/tex/latex/url/url.sty" 1 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "exercise1.aux" 1741963492.19946 217 acd57b69d7bd1c6c5990694957ff04e9 "pdflatex"
+  "exercise1.aux" 1741968372.85734 217 acd57b69d7bd1c6c5990694957ff04e9 "pdflatex"
   "exercise1.bbl" 0 -1 0 "biber exercise1"
-  "exercise1.run.xml" 1741963492.20446 2291 40baec02cb72eab38a0c403c9ef61138 "pdflatex"
-  "exercise1.tex" 1741963489.62843 2586 fd664b6f4a3d1bd6256a49351fc47243 ""
+  "exercise1.run.xml" 1741968372.86439 2291 40baec02cb72eab38a0c403c9ef61138 "pdflatex"
+  "exercise1.tex" 1741968370.77171 2608 67bcd06406ea73f0de37680011740e09 ""
   (generated)
   "exercise1.aux"
   "exercise1.bcf"
