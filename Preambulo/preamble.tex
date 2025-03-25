@@ -1,16 +1,18 @@
 \documentclass[a4paper]{article}
 
 % Package for formatting lists and printing mathematical formulas
-\usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{csquotes}
 \usepackage{biblatex}
+\usepackage{csquotes}
 
 % Formatting commands
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5\baselineskip}
 \newcommand{\addauthor}[2]{#1~(nUSP: #2)\\}
-\newcommand{\exerciseTitle}[1]{
+\newcommand{\exerciseList}[1]{
 	\title{Lista de Exercícios #1: Resolução}
 	\author{
 		\addauthor{Guilherme de Abreu}{12543033}

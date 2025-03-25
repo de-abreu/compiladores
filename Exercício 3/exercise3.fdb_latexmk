@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber exercise3"] 1742945272.9474 "exercise3.bcf" "exercise3.bbl" "exercise3" 1742945383.06425 2
-  "exercise3.bcf" 1742945383.00238 107255 07a846955391bf9e02fb0c9f5893d8ea "pdflatex"
+["biber exercise3"] 1742945272.9474 "exercise3.bcf" "exercise3.bbl" "exercise3" 1742945705.59654 2
+  "exercise3.bcf" 1742945705.53242 107255 07a846955391bf9e02fb0c9f5893d8ea "pdflatex"
   (generated)
   "exercise3.bbl"
   "exercise3.blg"
   (rewritten before read)
-["pdflatex"] 1742945382.12991 "exercise3.tex" "exercise3.pdf" "exercise3" 1742945383.06463 0
+["pdflatex"] 1742945704.68034 "exercise3.tex" "exercise3.pdf" "exercise3" 1742945705.59693 0
   "../Preambulo/preamble.tex" 1742945380.37935 664 c2619e5bbe1ee8b8efd11e71bc079e85 ""
   "/nix/store/a8x3l8hjyagnwhsvl9fp70r18g97mmfn-texlive-combined-2023/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 334052 dd7926938a3085a02b0daf06fa6ad6e8 ""
   "/nix/store/a8x3l8hjyagnwhsvl9fp70r18g97mmfn-texlive-combined-2023/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8021454 2d5ac0081b411e9af170f8ee1c27888c ""
@@ -77,10 +77,10 @@
   "/nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/logreq/logreq.def" 1 1620 fb1c32b818f2058eca187e5c41dfae77 ""
   "/nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/logreq/logreq.sty" 1 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
   "/nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/url/url.sty" 1 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "exercise3.aux" 1742945382.99838 217 24f983683f7a842e4f493394dc78f0d7 "pdflatex"
+  "exercise3.aux" 1742945705.52842 217 24f983683f7a842e4f493394dc78f0d7 "pdflatex"
   "exercise3.bbl" 0 -1 0 "biber exercise3"
-  "exercise3.run.xml" 1742945383.00338 2291 e72ddcd23c27ca30135666c8f21a44e0 "pdflatex"
-  "exercise3.tex" 1742945270.19816 1602 248389849bc73bc78dc0891b8599377d ""
+  "exercise3.run.xml" 1742945705.53342 2291 e72ddcd23c27ca30135666c8f21a44e0 "pdflatex"
+  "exercise3.tex" 1742945704.46341 1710 712dc9afa90e0fab3980a74f1254abbc ""
   (generated)
   "exercise3.aux"
   "exercise3.bcf"
