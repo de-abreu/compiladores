@@ -97,17 +97,6 @@ INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdis
 INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/csquotes/csquotes.cfg
 INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/csquotes/csquotes.cfg
 INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/csquotes/csquotes.cfg
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/listings.sty
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/listings.sty
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/lstpatch.sty
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/lstpatch.sty
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/lstpatch.sty
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/lstmisc.sty
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/lstmisc.sty
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/lstmisc.sty
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/listings.cfg
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/listings.cfg
-INPUT /nix/store/pw3lil95xhs6l4y4ayvwp8mn8i5vnwd6-texlive-combined-2023-texmfdist/tex/latex/listings/listings.cfg
 INPUT ./exercise3.aux
 INPUT ./exercise3.aux
 INPUT exercise3.aux
