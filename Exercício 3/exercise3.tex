@@ -1,0 +1,91 @@
+\input{../Preambulo/preamble.tex}
+
+% Format exercises
+\newcounter{count}
+\setcounter{count}{0}
+\renewcommand{\labelenumi}{\alph{enumi}.}
+\newcommand{\exercise}[2]{%
+  \stepcounter{count}%
+  \noindent\textbf{Exercício \thecount:}
+
+  #1
+  
+  \vspace{\baselineskip}%
+  \noindent\textbf{Resolução:}%
+  \vspace{\baselineskip}%
+  
+  #2 
+  
+  \vspace{2\baselineskip}%
+}
+\exerciseList{3}
+
+\begin{document}
+\maketitle
+
+\exercise{
+	Considere o seguinte programa escrito em LALG:
+
+	program p1;\\
+	var x: integer;\\
+	begin\\
+	\hspace*{2em} read(x);\\
+	\hspace*{2em} x := x * 2;\\
+	\hspace*{2em} write(x);\\
+	end.
+
+	Em um processo de compilação, qual seria a saída da
+
+	\begin{enumerate}
+		\item análise léxica?
+		\item análise sinstática?
+		\item análise semântica?
+	\end{enumerate}
+} {
+	\begin{enumerate}
+		\item
+		\item
+		\item
+	\end{enumerate}
+}
+
+\exercise{
+	Defina os seguintes correlatos ao processo de compilação:
+
+	\begin{enumerate}
+		\item Interpretador
+		\item Processador de macro
+		\item Editor de ligação
+		\item Montador (Assembler)
+		\item Pré-processador
+		\item Editor/IDE
+		\item Depurador
+	\end{enumerate}
+}  {
+	\begin{enumerate}
+		\item
+		\item
+		\item
+		\item
+		\item
+		\item
+		\item
+	\end{enumerate}
+}
+
+\exercise{
+	Quais as principais similaridades e diferenças entre interpretadores e
+	compiladores? Qual método é mais vantajoso?
+} {} {
+
+}
+
+\exercise {
+	Quais as características de uma linguagem que determinam que ela deve
+	ser compilada ou interpretada? Esta questão refere-se à linguagem em si,
+	independentemente do uso que é feito dela.
+} {} {
+
+}
+
+\end{document}
