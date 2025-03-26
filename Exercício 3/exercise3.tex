@@ -10,13 +10,10 @@
 
   #1
   
-  \vspace{\baselineskip}%
   \noindent\textbf{Resolução:}%
-  \vspace{\baselineskip}%
   
   #2 
   
-  \vspace{2\baselineskip}%
 }
 \exerciseList{3}
 
@@ -65,13 +62,38 @@
 }  {
 	% Respostas ao exercício 2
 	\begin{enumerate}
-		\item
-		\item
-		\item
-		\item
-		\item
-		\item
-		\item
+		\item \textbf{Interpretador:} programa o qual executa um dado
+		    código-fonte à partir de sua leitura, linha a linha, durante o
+		    tempo de execução.
+		\item \textbf{Processador de macro:} ferramenta que processa
+		    substituições de texto em um dado código-fonte antes de sua
+		    compilação interpretação. Isto é, este reconhece dadas invocações de
+		    macro (como o \texttt{#define} na linguagem C) e a substituem por
+		    definições a estas atribuídas.
+		\item \textbf{Editor de ligação (Linker):} programa o qual combina uma
+		    série de arquivos (denominados "objetos") gerados pelo compilador em
+		    um único arquivo executável, ao resolver as referências entre estes.
+		\item \textbf{Montador (Assembler):} programa o qual provê tradução
+		    entre uma linguagem de programação de baixo nível denominada
+		    "linguagem de montagem" e correspondentes instruções de máquina.
+		    Como a relação entre instruções de montagem e instruções de máquina
+		    se aproximam de uma correspondência de 1 para 1, tal linguagem
+		    permite ao programador ganhos em controle e desempenho em troca de
+		    perdas em termos de menor portabilidade e maior complexidade.
+		\item \textbf{Pré-processador:} programa o qual opera transformações no
+		    código-fonte antes deste ser processado pelo compilador. Este
+		    abarca a inclusão de arquivos, a ativação do processador de macros,
+		    a compilação condicional, dentre outras várias funcionalidades.
+		\item \textbf{Editor/IDE:} programa o qual provê um conjunto de
+		    ferramentas em uma interface unificada para permitir ao usuário um
+		    ambiente de desenvolvimento eficiente para －dentre outras
+		    funcionalidades － escrever, testar e depurar outros programas à
+		    partir do código-fonte destes.
+		\item \textbf{Depurador:} programa o qual permite o teste, análise e
+		    depuração de um dado programa alvo por meio do controle de execução,
+		    inspeção de variáveis e rastreio de erros no código-fonte deste.
+		    Ou seja, depuradores são ferramentas que  auxiliam programadores
+		    a encontrar e reparar falhas em dados programas.
 	\end{enumerate}
 }
 
@@ -79,7 +101,29 @@
 	Quais as principais similaridades e diferenças entre interpretadores e
 	compiladores? Qual método é mais vantajoso?
 } {
-	% Respostas ao exercício 3
+	São similaridades entre compiladores e interpretadores:
+
+	\begin{itemize}
+		\item \textbf{Propósito:} tanto compiladores quanto interpretadores são
+		      ferramentas pelas quais um dado código-fonte pode ser traduzido a
+		      uma forma que pode ser executada por um computador.
+
+		\item \textbf{Detecção de erro:} Ambos realizam tarefas de análise
+		      léxica, sintática e semântica para assegurar que o código-fonte é
+		      válido. E podem orientar desenvolvedores a identificar e corrigir
+		      falhas antes da execução deste.
+	\end{itemize}
+
+	Enquanto as principais divergências entre interpretadores e compiladores
+	encontram-se descritas na tabela \ref{tab:comparacaoInterpreterCompiler}.
+	
+	Em suma, as características de linguagens interpretadas as tornam propícias
+	de serem utilizadas em ambientes de desenvolvimento dinâmicos como, por
+	exemplo, na prototipagem, na análise de dados, ou na escrita de scripts. Ou
+	seja, situações as quais o custo adicional de sucessivos processos de
+	compilação não se justifica. Enquanto, por outro lado linguagens compiladas
+	são preferíveis quando é crítico o melhor desempenho e eficiência dos
+	programas gerados.			
 }
 
 \exercise {
@@ -89,5 +133,50 @@
 } {
 	% Respostas ao exercício 4
 }
+
+\begin{table}[htbp]
+    \centering
+    \caption{Principais divergências entre interpretadores e compiladores}
+    \label{tab:comparacaoInterpreterCompiler}
+    \begin{tabularx}{\linewidth}{ | l | >{\RaggedRight\arraybackslash}X | >{\RaggedRight\arraybackslash}X | }
+        \hline
+        \textbf{Aspecto} & \textbf{Interpretador} & \textbf{Compilador} \\
+        \hline
+        Execução &
+        Executa o código-fonte traduzido em linguagem de máquina, linha a
+        linha, em tempo de execução &
+        Executa uma tradução do código-fonte feita previamente, em sua
+        inteiridade. \\
+        \hline
+        Saída &
+        Não gera arquivo executável, o código é executado diretamente &
+        Produz arquivo executável. \\
+        \hline
+        Tempo de execução &
+        Maior, pois o código é traduzido e executado simultaneamente. &
+        Menor, a execução é feita diretamente. \\
+        \hline
+        Consumo de memória &
+        Maior, pois o interpretador precisa ser carregado a memória durante
+        execução. &
+        Menor, o código é executado de forma independente. \\
+        \hline
+        Tratamento de erros &
+        Erros são todos detectados e relatados durante execução &
+        Alguns erros são detectados e relatados durante compilação \\ 
+        \hline
+        Portabilidade &
+        Maior, dado código-fonte pode ser executado em qualquer plataforma
+        alvo que possua um interpretador. &
+        Menor, o código-fonte necessita ser compilado para gerar um arquivo
+        executável cada plataforma alvo. \\
+        \hline
+        Depuração &
+        Mais ágil pois se tem uma resposta imediata a mudanças feitas no
+        código. &
+        Mais lenta pois cada modificação exige recompilação. \\
+        \hline
+    \end{tabularx}
+\end{table}
 
 \end{document}
