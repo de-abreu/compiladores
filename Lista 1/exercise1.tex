@@ -1,0 +1,78 @@
+\input{../Preambulo/preamble.tex}
+
+% Exercises format
+\newcounter{count}
+\setcounter{count}{0}
+\newcommand{\exercise}[2]{%
+  \stepcounter{count}%
+  \noindent\textbf{Exercício \thecount:} Calcule o primeiro $P(X)$ e o seguinte $S(X)$ para cada símbolo não terminal na seguinte gramática
+%
+  \vspace{\baselineskip}%
+  \begin{itemize}
+    #1
+  \end{itemize}
+  \vspace{\baselineskip}%
+  \noindent\textbf{Resolução:}%
+  \vspace{\baselineskip}%
+  
+  #2 
+  \vspace{2\baselineskip}%
+}
+
+\exerciseList{1}
+
+\begin{document}
+
+\maketitle
+
+% Exercises
+\exercise {
+	\item $S \rightarrow A | B | \lambda$
+	\item $A \rightarrow A + B | A - B | 1 | 2 | 3 | \lambda$
+	\item $B \rightarrow A | B$
+	\item $C \rightarrow (A)$
+} {
+	O primeiro de um dado símbolo não terminal resulta da união dos primeiros de cada símbolo não terminal que este gera, portanto responderemos a este exercício conforme a ordem reversa de geração:
+
+	\begin{itemize}
+		\item $P(C) = \{(\}$
+		\item $P(A) = \{+, -, 1, 2, 3, \lambda \}$
+		\item $P(B) = P(A) \cup P(C) = \{ 1, 2, 3, +, -, (, \lambda \}$
+		\item $P(S) = P(A) \cup P(B) \cup \lambda = P(B) = \{ 1, 2, 3, +, -, (, \lambda \}\ \blacksquare$
+	\end{itemize}
+
+	Para encontrar o seguinte, seguimos a ordem reversa. Isto é, realizamos a união dos seguintes de cada símbolo terminal que contém outro primeiro:
+
+	\begin{itemize}
+		\item $S(S) = {\lambda}$
+		\item $S(A) = \{+, -, \lambda \} \cup \{)\} = \{+, -, ), \lambda\}$
+		\item $S(B) = S(A) = \{+, -, ), \lambda\}$
+		\item $S(C) = S(B) =  \{+, -, ), \lambda\}\ \blacksquare$
+	\end{itemize}
+}
+
+\exercise {
+	\item $S \rightarrow \lambda | abA | abB | abC$
+	\item $A \rightarrow aSaa | b$
+	\item $B \rightarrow bSbb | c$
+	\item $C \rightarrow cScc | d$
+} {
+	Primeiros:
+	\begin{itemize}
+		\item $P(S) = \{a, \lambda\}$
+		\item $P(A) = \{a, b\}$
+		\item $P(B) = \{b, c\}$
+		\item $P(C) = \{c, d\}\ \blacksquare$
+	\end{itemize}
+
+	Seguintes:
+	\begin{itemize}
+		\item $S(S) = \{a, b, c, \lambda\}$
+		\item $S(A) = S(S)$
+		\item $S(B) = S(S)$
+		\item $S(C) = S(S)\ \blacksquare$
+	\end{itemize}
+
+}
+
+\end{document}
