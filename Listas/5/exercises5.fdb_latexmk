@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber exercises5"] 1744154462.27334 "exercises5.bcf" "exercises5.bbl" "exercises5" 1744227041.52725 2
-  "exercises5.bcf" 1744227041.35535 107255 07a846955391bf9e02fb0c9f5893d8ea "pdflatex"
+["biber exercises5"] 1744154462.27334 "exercises5.bcf" "exercises5.bbl" "exercises5" 1744231398.11862 2
+  "exercises5.bcf" 1744231397.92852 107255 07a846955391bf9e02fb0c9f5893d8ea "pdflatex"
   (generated)
   "exercises5.bbl"
   "exercises5.blg"
   (rewritten before read)
-["pdflatex"] 1744227039.35953 "exercises5.tex" "exercises5.pdf" "exercises5" 1744227041.52763 2
+["pdflatex"] 1744231396.0947 "exercises5.tex" "exercises5.pdf" "exercises5" 1744231398.11909 2
   "../Preambulo/preamble.tex" 1744153254.03746 982 766e44ae8c2aa0a17accd2ffbb177cf5 ""
   "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/enc/dvips/lm/lm-ec.enc" 1 2375 baa924870cfb487815765f9094cf3728 ""
   "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/enc/dvips/lm/lm-mathit.enc" 1 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -23,10 +23,7 @@
   "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmr10.tfm" 1 12056 7e13df7fe4cbce21b072ba7c4f4deb6e ""
   "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmr12.tfm" 1 12092 7b1546e2d096cfd5dcbd4049b0b1ec2e ""
   "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmr17.tfm" 1 12156 ca1ae6a3c8564e89597f1f993fba1608 ""
-  "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmr5.tfm" 1 12020 46464c854bf317de2a7a0bbe4a1160ca ""
-  "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmr7.tfm" 1 12064 09aa3eeac96bf141d673bb1b0385ce55 ""
   "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmri10.tfm" 1 17148 9556e1b5f936b77a796f68d2d559ba99 ""
-  "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmri7.tfm" 1 17168 78a37e395d0470967cfda94332b0716a ""
   "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmtt10.tfm" 1 1372 2ef2c2b492b3c4cd7879fe083abbb061 ""
   "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/lmex10.tfm" 1 992 ce925c9346c7613270a79afbee98c070 ""
   "/nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/lmmi10.tfm" 1 1528 6d36b2385e0ca062a654de6ac59cb34f ""
@@ -212,10 +209,10 @@
   "/nix/store/hb34f2xrhmg37fk6jkd9x0phw81jbd0r-texlive-combined-2023/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 334052 152d349764e6013e4aca35e715982047 ""
   "/nix/store/hb34f2xrhmg37fk6jkd9x0phw81jbd0r-texlive-combined-2023/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8021459 700a9f0b44e71579643efb51f7b01fae ""
   "/nix/store/hb34f2xrhmg37fk6jkd9x0phw81jbd0r-texlive-combined-2023/share/texmf-var/web2c/texmf.cnf" 1 42803 b3436c731df3c6263e9cbe3d5e15cdbd ""
-  "exercises5.aux" 1744227041.35135 217 27fb9b14fd240ff87f497ace9e175ddf "pdflatex"
+  "exercises5.aux" 1744231397.92452 217 27fb9b14fd240ff87f497ace9e175ddf "pdflatex"
   "exercises5.bbl" 0 -1 0 "biber exercises5"
-  "exercises5.run.xml" 1744227041.35635 2298 1a58b8190b8d375374f8aa30021aa923 "pdflatex"
-  "exercises5.tex" 1744227037.3783 7014 d9bdcff72dfcdb9144c4831fbf028ad5 ""
+  "exercises5.run.xml" 1744231397.92952 2298 1a58b8190b8d375374f8aa30021aa923 "pdflatex"
+  "exercises5.tex" 1744231394.68849 6378 95b953bb18d031e13004777e19b1e629 ""
   (generated)
   "exercises5.aux"
   "exercises5.bcf"

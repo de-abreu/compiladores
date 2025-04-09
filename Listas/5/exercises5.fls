@@ -357,10 +357,6 @@ INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdis
 INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmr7.tfm
-INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmri7.tfm
-INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmr5.tfm
-INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/tfm/public/lm/ec-lmri7.tfm
 INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/tex/latex/lm/t1lmtt.fd
 INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/tex/latex/lm/t1lmtt.fd
 INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/tex/latex/lm/t1lmtt.fd
@@ -368,8 +364,8 @@ INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdis
 OUTPUT exercises5.pdf
 INPUT /nix/store/hb34f2xrhmg37fk6jkd9x0phw81jbd0r-texlive-combined-2023/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/enc/dvips/lm/lm-ec.enc
-INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/enc/dvips/lm/lm-mathit.enc
+INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /nix/store/7ci8dm0ph8pjqvg27c1r0n82wgqqand0-texlive-combined-2023-texmfdist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT exercises5.aux
 INPUT exercises5.run.xml
