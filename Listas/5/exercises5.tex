@@ -45,7 +45,7 @@ exercício 3) que leva a um estado de captura (\textit e), como o seguinte:
 
 		\path [-stealth, thick]
 		(e) edge [loop below]
-		node {[$\hat$ \backslash t\backslash n]} ();
+		node {[$\hat$ \textbackslash t\textbackslash n]} ();
 	\end{tikzpicture}
 \end{center}
 
@@ -96,7 +96,7 @@ exercício 3) que leva a um estado de captura (\textit e), como o seguinte:
 	\node (q4) [state, accepting, above right=of q3] {$q_4$};
 	\node (q5) [state, right=of q3] {$q_5$};
 	\node (q6) [state, above right=of q5] {$q_6$};
-	\node (q7) [state, right=of q5] {$q_7$};
+	\node (q7) [state, below=of q6] {$q_7$};
 	\node (return) [above right=1cm of q4]
 	{\parbox{7cm}{\texttt{return(string)}\\\texttt{move\_back()}}};
 
@@ -153,7 +153,7 @@ exercício 3) que leva a um estado de captura (\textit e), como o seguinte:
 
 	(q0) edge [bend right] node {\{} (q6)
 	(q6) edge [loop above] node {.} ()
-	(q6) edge [bend right] node {\textbackslash \textbackslash} (q7)
+	(q6) edge [bend right] node [below left]{\textbackslash \textbackslash} (q7)
 	(q7) edge [loop below] node {\textbackslash \textbackslash} ()
 	(q7) edge [bend right] node [above right] {.} (q6)
 	(q6) edge node [above left] {\}} (q5);

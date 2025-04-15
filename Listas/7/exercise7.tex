@@ -1,0 +1,171 @@
+\input{../Preambulo/preamble.tex}
+
+% Format exercises
+\newcounter{count}
+\setcounter{count}{0}
+\renewcommand{\labelenumi}{\alph{enumi}.}
+\newcommand{\exercise}[2]{%
+    \stepcounter{count}%
+    \noindent\textbf{Exercício \thecount:} #1
+
+    \noindent\textbf{Resolução:}%
+    
+    #2
+
+    \pagebreak
+}
+
+\exerciseList{7}
+
+\begin{document}
+\maketitle
+\exercise{
+    Criar uma tabela sintática para a gramática abaixo.
+
+    $S \to AS' \\
+    S' \to S \mid \lambda \\
+    A \to a \mid b \mid \lambda$
+}{
+    Iniciamos pela construção da Tabela de Primeiros e Seguidores:
+
+    \begin{table}[htbp]
+        \centering
+        \begin{tabularx}{\linewidth}{ | l | >{\RaggedRight\arraybackslash}X | >{\RaggedRight\arraybackslash}X | }
+            \hline
+            \textbf{Regra}                        & \textbf{Primeiro}  & \textbf{Seguidor} \\
+            \hline
+            $S \to AS'$                   & $a, b, +, \lambda$ & $\lambda$         \\
+            \hline
+            $S' \to S \mid \lambda$       & $+, \lambda$       & $\lambda$         \\
+            \hline
+            $A \to a \mid b \mid \lambda$ & $a, b, \lambda$    & $+, \lambda$      \\
+            \hline
+        \end{tabularx}
+    \end{table}
+
+    Com base nesta, determinamos as regras de transição para obtenção dos
+    símbolos terminais a partir dos terminais, que orienta a análise preditiva
+    não recursiva:
+
+    \begin{table}[htbp]
+        \centering
+        \begin{tabularx}{\linewidth}{ | l | >{\RaggedRight\arraybackslash}X |
+                        >{\RaggedRight\arraybackslash}X | >{\RaggedRight\arraybackslash}X |
+                        >{\RaggedRight\arraybackslash}X | }
+            \hline
+                 & \textbf{a}          & \textbf{b}          & \textbf{+}          &
+            $\lambda$                                                                               \\
+            \hline
+            $S$  & $S \to AS'$ & $S \to AS'$ & $S \to AS'$ & $S \to AS'$ \\
+            \hline
+            $S'$ & $S' \to +S$ &                     & $S' \to +S$ & $S' \to \lambda$ \\
+            \hline
+            $A$ & $A \to a$ & $A \to b$                    & &
+            $A \to \lambda$ \\
+            \hline
+        \end{tabularx}
+    \end{table}
+
+}
+
+\exercise{
+    Construa a tabela sintática para a gramática abaixo e reconheça a cadeia
+    $id+id\cdot id$ utilizando análise sintática preditiva não recursiva. A cada
+    passo, mostre o estado da pilha, da cadeia de entrada e a regra utilizada na
+    derivação. Mostre a implementação deste analisador sintático.
+
+    $E \to TE' \\
+    E' \to +TE' \mid \lambda \\
+    T \to FT' \\
+    T' \to \cdot FT' \mid \lambda \\
+    F \to \mid id$
+}{
+    Seguindo os passos vistos no exercício anterior, temos:
+
+    \begin{table}[htbp]
+        \centering
+        \begin{tabularx}{\linewidth}{ | l | >{\RaggedRight\arraybackslash}X | >{\RaggedRight\arraybackslash}X | }
+            \hline
+            \textbf{Regra}                        & \textbf{Primeiro}  & \textbf{Seguidor} \\
+            \hline
+            $E \to TE'$                   & $(, id$ & $), \lambda$         \\
+            \hline
+            $E' \to +TE' \mid \lambda$       & $+, \lambda$       & $),
+            \lambda$         \\
+            \hline
+            $T \to FT'$ & $(, id$    & $+, \lambda$      \\
+            \hline
+            $T' \to \cdot FT' \mid \lambda$ & $\cdot, \lambda$    & $+, \lambda$      \\
+            \hline
+            $F \to (E) \mid id$ & $(, id$ & $\cdot, \lambda$ \\
+            \hline
+        \end{tabularx}
+    \end{table}
+
+    E a seguinte tabela sintática:
+
+    \begin{table}[htbp]
+        \centering
+        \begin{tabularx}{\linewidth}{ | l | >{\RaggedRight\arraybackslash}X |
+                        >{\RaggedRight\arraybackslash}X | >{\RaggedRight\arraybackslash}X |
+                        >{\RaggedRight\arraybackslash}X |
+                    >{\RaggedRight\arraybackslash}X |
+                >{\RaggedRight\arraybackslash}X |}
+            \hline
+                 & \textbf{(}          & \textbf{)}          & \textbf{+}          &
+            $\mathbf \cdot$
+            	 & \textbf{id} & $\mathbf \lambda$ \\
+            \hline
+           		$E$ & $\to TE'$ & & & & $ \to TE'$ & \\
+           	\hline
+           		$E'$ & & $\to \lambda$ & $\to +TE'$ & & & $\to
+           		\lambda$ \\
+           	\hline
+           		$T$ & $\to FT'$ & & $\to FT'$ & & $\to FT'$ & \\
+           	\hline
+           		$T'$ & & & $\to \lambda$ & $\to FT'$ & & $\to \lambda$ \\
+           	\hline
+           		$F$ & $\to (E)$ & & & & $\to id$ & \\
+           	\hline
+        \end{tabularx}
+    \end{table}
+
+    O que nos leva ao seguinte processo de análise sintática não recursivo:
+
+        \begin{table}[htbp]
+        \centering
+        \begin{tabularx}{\linewidth}{ | l | >{\RaggedRight\arraybackslash}X |
+                        >{\RaggedRight\arraybackslash}X |}
+            \hline
+            \textbf{Stack} & \textbf{String} & \textbf{Regra} \\
+            \hline
+            $\lambda E$ & $id + id \cdot id \lambda$ & $E \to TE'$ \\
+           	\hline
+            $\lambda E'T$ & $id + id \cdot id \lambda$ & $T \to FT'$ \\
+            \hline
+            $\lambda E'T'F$ & $id + id \cdot id \lambda$ & $F \to id$ \\
+            \hline
+            $\lambda E'T'$ & $+ id \cdot id \lambda$ & $T' \to \lambda$ \\
+            \hline
+            $\lambda E'$ & $+ id \cdot id \lambda$ & $E' \to +TE'$ \\
+            \hline
+            $\lambda E'T$ & $id \cdot id \lambda$ & $T \to FT'$ \\
+            \hline
+            $\lambda E'T'F$ & $id \cdot id \lambda$ & $F \to id$ \\
+            \hline
+            $\lambda E'T'$ & $\cdot id \lambda$ & $T' \to \cdot FT'$ \\
+            \hline
+            $\lambda E'T'F$ & $id \lambda$ & $F \to id$ \\
+            \hline
+            $\lambda E'T'$ & $\lambda$ & $T' \to \lambda$ \\
+            \hline
+            $\lambda E'$ & $\lambda$ & $E' \to \lambda$ \\
+            \hline
+            $\lambda$ & $\lambda$ & Sucesso \\
+            \hline
+        \end{tabularx}
+    \end{table}
+
+}
+
+\end{document}
