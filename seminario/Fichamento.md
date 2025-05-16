@@ -204,7 +204,7 @@ máximo divisor comum (_greatest common divisor, GCD_):
 
 int gcd(int u, int v) {
     if v
-        return gcd(b, a % b);
+        return gcd(v, u % v);
     return u;
 }
 
