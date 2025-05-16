@@ -72,8 +72,7 @@ Por vez, a área de dados pode ser delimitadas em outras três regiões principa
   criação de uma pilha de procedimentos (ou funções).
 
 - Área de _heap_: onde são armazenados dinamicamente quaisquer outros dados que
-  não seguem essa ordenação (ex.: como fazem os ponteiros na linguagem de
-  programação C).
+  não seguem essa ordenação.
 
 > [!IMPORTANT] "Heap", neste contexto, é uma área de memória linear simples.
 >
@@ -242,9 +241,91 @@ com relação a _fp_, para todo `i < 10`.
 
 ---
 
-> [!NOTE] Considerar acrescentar slide aqui
->
-> Sobre os tópicos de variáveis temporárias e declarações aninhadas.
+#### Gerenciamento de _heap_
+
+Como dito anteriormente, o _heap_ trata-se de um bloco linear de memória de
+tamanho variável. O gerenciamento de um heap envolve a duas operações:
+
+- **alocar:** recebe um parâmetro de tamanho (pode ser explícito, usualmente em
+  número de bytes, ou implícito) e retorna um ponteiro para o início de um bloco
+  de memória disponível com o tamanho correspondente (ou um ponteiro nulo se
+  este não houver);
+
+- **liberar**: recebe o ponteiro para um bloco de memória, infere o tamanho
+  deste (de forma implícita ou dado um parâmetro de tamanho) e o marca como
+  estando disponível para ser sobrescrito.
+
+---
+
+A nomenclatura adotada para estas operações diverge entre diferentes linguagens
+de programação, e aqui dotaremos a nomenclatura vista na linguagem C: `malloc` e
+`free`. Um método padrão para a implementação destas funções é o uso de uma
+lista ligada circular (LLC) de blocos livres, donde memória é obtida com
+`malloc` e devolvida com `free`.
+
+---
+
+Considere uma matriz de tamanho arbitrário donde armazenar dados, e nós `Header`
+de uma LLC definidos como:
+
+![Diagrama da estrutura Header](images/snapshot_2025-05-16_19-48-03.png)
+
+Sendo:
+
+- `next`: um ponteiro para o nó seguinte
+- `usedsize`: O tamanho da memória consumida entre o nó presente e o seguinte
+- `freesize`: O tamanho da memória disponível entre o nó presente e o seguinte
+
+Estes acompanhados de segmentos de memória ocupado e livre, respectivamente, de
+tamanho variável.
+
+---
+
+Considere também um ponteiro `memptr` inicialmente posicionado sobre o `Header`
+inicial da LLC. O `memptr` é tal que ao final de cada alocação ou liberação,
+**sempre** para um bloco de memória com algum espaço disponível.
+
+![Estado inicial do _heap_](images/snapshot_2025-05-16_20-01-54.png)
+
+---
+
+##### Alocação
+
+A cada invocação de `malloc`,
+
+- Designa-se o nó apontado por `memptr` como sendo a cabeça da LLC, e
+  percorre-se esta nó a nó até que um nó com espaço livre suficiente se
+  apresente ou, senão, se retorne ao nó apontado por `memptr` (retornando um
+  ponteiro nulo)
+- Cria-se um novo nó seguinte e a este atribui toda a memória livre disponível
+  ao nó apontado por `memptr`, ajustando também o conteúdo do ponteiro next de
+  ambos estes nós.
+- No novo nó, a memória da matriz é novamente repartida entre ocupada e
+  disponível, devolvendo um ponteiro para a região ocupada (que o usuário pode
+  utilizar para armazenar dados).
+- Finalmente, `memptr` passa a apontar para este novo nó, de maneira que este
+  procedimento possa se repetir sucessivamente.
+
+---
+
+![Estado do heap após três alocações]()
+
+---
+
+##### Liberação
+
+A cada invocação de `free`,
+
+- Percorre-se a lista circular desde `memptr` até o nó anterior ao nó que
+  corresponde ao ponteiro fornecido.
+- Atribui-se a ocupada e livre do no seguinte como sendo livre ao nó atual.
+- Atribui-se o `next` do nó seguinte para o `next` do nó atual, e se apaga o nó
+  seguinte.
+- Finalmente, `memptr` passa a apontar para o atual nó.
+
+---
+
+![Estado do heap após uma liberação de memória](images/snapshot_2025-05-16_20-31-07.png)
 
 ---
 
