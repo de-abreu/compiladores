@@ -27,8 +27,6 @@ Abordaremos estes em ordem a seguir.
 > Além destas, existem formas híbridas entre estas categorias, mas estas não
 > serão aqui abordadas
 
----
-
 ## Ambientes de execução baseados em pilhas
 
 Iniciamos nossa exploração pelo ambiente de execução baseado em pilhas, por este
@@ -45,11 +43,7 @@ Alguns aspectos do ambiente de execução baseados em pilhas encontram paralelo
 nos demais tipos de ambientes, e como tal serão oportunamente retomados em vez
 de reiterados.
 
----
-
 ### Aspectos gerais de ambientes de execução baseados em pilha
-
----
 
 #### Regiões de memória
 
@@ -112,8 +106,6 @@ persistirem em uma memória local, e eventualmente serem desempilhados em uma
 sequência de retorno. Ao conjunto de registros de ativação mantidos em uma pilha
 denomina-se o **quadro de pilhas**.
 
----
-
 #### Registradores
 
 Registradores são convenientes, e são utilizados, para armazenar valores
@@ -153,15 +145,11 @@ execução, são estes:
 > utilizado para indicar a posição na pilha de uma argumento a ser acessado que
 > foi armazenado na pilha.
 
----
-
 #### Sequências de ativação e retorno
 
 Também denominadas enquanto o _prólogo_ e _epílogo_, são conjuntos de operações
 que precedem e seguem a execução de cada função, respectivamente. As operações
 que os compõem são detalhadas à seguir:
-
----
 
 ##### Sequência de ativação
 
@@ -173,15 +161,11 @@ que os compõem são detalhadas à seguir:
 - Deslocamento do _pc_ para apontar à porção de código correspondente a função
   atual.
 
----
-
 ##### Sequência de retorno
 
 - Atribuição do valor de _fp_ para _sp_;
 - Atribuição do valor de _old fp_ para _fp_;
 - Atribuição do endereço de retorno ao _pc_.
-
----
 
 #### Dados de comprimento variável
 
@@ -205,8 +189,6 @@ registrando-se respetivos comprimentos e deslocamentos dos endereços de memóri
 - Armazenar na pilha informações de **tamanho** e **quantidade** de elementos,
   para cada tipo de argumento de comprimento variável armazenado.
 
----
-
 ##### Exemplo
 
 O seguinte trecho de código, escrito na linguagem Ada, representa um algoritmo
@@ -225,8 +207,10 @@ begin
 end Sum;
 ```
 
+---
+
 Uma possível representação da organização de memória para o ambiente de execução
-deste programa seria:
+do programa anterior seria:
 
 ![Ambiente de execução com um vetor de inteiros](snapshot_2025-05-16_13-36-58.png)
 
@@ -238,8 +222,6 @@ com relação a _fp_, para todo `i < 10`.
 > Note que, em Ada, `tamanho de A` é armazenado implicitamente em tempo de
 > execução. Em C as matrizes são simples ponteiros e o tamanho de uma matriz
 > deve ser explicitamente armazenado em outra variável.
-
----
 
 #### Gerenciamento de _heap_
 
@@ -287,8 +269,6 @@ inicial da LLC. O `memptr` é tal que ao final de cada alocação ou liberação
 
 ![Estado inicial do _heap_](images/snapshot_2025-05-16_20-01-54.png)
 
----
-
 ##### Alocação
 
 A cada invocação de `malloc`,
@@ -310,8 +290,6 @@ A cada invocação de `malloc`,
 
 ![Estado do heap após três alocações]()
 
----
-
 ##### Liberação
 
 A cada invocação de `free`,
@@ -327,8 +305,6 @@ A cada invocação de `free`,
 
 ![Estado do heap após uma liberação de memória](images/snapshot_2025-05-16_20-31-07.png)
 
----
-
 ### Ambientes de execução baseados em pilha sem procedimentos locais
 
 Nas linguagens de programação em que todos as funções são globais (como a
@@ -337,8 +313,6 @@ apenas os endereços do registro de ativação corrente e daquele imediatamente
 anterior. Para tal faz-se uso de dois registradores: _fp_ e mais outro
 denominado _vinculação de controle_, ou _fp old_, cujo valor é armazenado nos
 dados locais à função corrente.
-
----
 
 #### Exemplo
 
@@ -363,7 +337,9 @@ int main() {
 }
 ```
 
-Deste programa resultaria a seguinte organização da memória no ambiente de
+---
+
+Do programa anterior resultaria a seguinte organização da memória no ambiente de
 execução:
 
 ![Registros de controle empilhados, ligados entre si por vinculação de
@@ -380,8 +356,6 @@ memória apresentada necessita de ser acrecida de uma nova variável de controle
 a ser armazenada no registro de ativação: a _vinculação de acesso_. Esta trata
 do armazenamento, no registro de ativação da função chamada, do endereço na
 pilha do registro da função que a declarou.
-
----
 
 #### Exemplo
 
@@ -425,12 +399,12 @@ e carrega o valor para `n` tido neste contexto.
 > tem acesso somente ao contexto da função que a chamou; e não doutras de mesmo
 > tipo que possam ser pregressas a esta.
 
-Deste programa resultaria a seguinte organização da memória no ambiente de
+---
+
+Do programa anterior resultaria a seguinte organização da memória no ambiente de
 execução:
 
 ![Exemplo de ambiente de execução com procedimentos locais](images/snapshot_2025-05-16_14-53-45.png)
-
----
 
 ### Ambientes baseados em pilhas com parâmetros de procedimentos
 
@@ -447,8 +421,6 @@ enquanto parâmetro. Neste contexto, o ponteiro de código e ponteiro de
 vinculação de acesso são denominados um par de **ponteiro de instrução**
 (_instruction pointer_ `ip`) e **ponteiro de ambiente** (_environment pointer_,
 `ep`): `<ip, ep>`.
-
----
 
 #### Exemplo
 
@@ -498,11 +470,7 @@ E o segundo imediatamente após a ativação de `a`:
 Vê-se que os valores de `<ip, ep>` para `a` já estavam disponíveis em `p` no
 momento em que `a` é chamado, e estes informam sua vinculação de acesso.
 
----
-
 ## Ambientes de execução totalmente estáticos
-
----
 
 O ambiente de execução totalmente estático trata-se do ambiente mais simples
 disponível, onde todos os dados possuem posições fixas na memória, é denominado
@@ -514,21 +482,19 @@ pilha e do _heap_:
 - Alocação dinâmica;
 - Recursão.
 
-Em contrapartida a perda de funcionalidade, ganha-se em desempenho reduzindo-se
-o _overhead_ do controle de execução, com o uso adicional de registradores antes
-reservados a tal finalidade. Um ambiente deste tipo necessita de apenas um
+Em contrapartida a perda de funcionalidade, ganha-se em desempenho ‒
+reduzindo-se o _overhead_ do controle de execução ‒ e acesso a registradores
+antes reservados a tal finalidade. Um ambiente deste tipo necessita de apenas um
 registrador para acompanhar o atual estado de execução: o registrador de
 retorno.
 
 ---
 
-A organização do ambiente de execução totalmente estático pode ser representado
+A organização do ambiente de execução totalmente estático pode ser representada
 da seguinte maneira:
 
 ![Diagrama da organização de memória de um ambiente de execução totalmente
 estático](images/snapshot_2025-05-14_09-57-59.png)
-
----
 
 ### Exemplo
 
@@ -561,15 +527,180 @@ END
 ```
 
 Note o tamanho prefixado para o vetor de inteiros e o uso extensivo de variáveis
-globais, mesmo para armazenar valores temporários da função `QUADMEAN`. Para
-este programa, teríamos o seguinte ambiente de execução:
+globais, mesmo para armazenar valores temporários da função `QUADMEAN`.
 
 ---
+
+Para o programa anterior, teríamos o seguinte ambiente de execução:
 
 ![Ambiente de execução do programa `TEST`](images/snapshot_2025-05-16_16-44-35.png)
 
+## Ambientes de execução totalmente dinâmicos
+
+Por vez, ambientes de execução baseados em pilha apresentam eles próprios
+restrições impostas às linguagens de programação que deles fazem uso: estes não
+são capazes de transmitir por referência valores locais aos registros de
+ativação, e tentá-lo produziria uma **referência pendente** (comumente referido
+como _dangling pointer_ ou _wild pointer_).
+
 ---
 
-## Memória dinâmica
+O exemplo mais simples disso seria a seguinte função em C:
+
+```c
+int *dangle(void) {
+    int x;
+    return &x
+}
+```
+
+Esta produz uma variável `x` local e retorna um ponteiro para a mesma.
+Entretanto, se acessado posteriormente, este ponteiro aponta pra uma região da
+memória a qual liberada pela função que gerou o ponteiro e, como tal, pode ser
+sobrescrita por qualquer outra informação (e por qualquer outro programa rodando
+simultaneamente) dada a continuidade da execução do programa. Ou seja, esta
+referência encontra-se em um estado inconsistente.
+
+Pode-se argumentar que esse tipo de uso seria simplesmente um exemplo de mal uso
+a ser circundado com boas práticas de programação. De fato, entre linguagens de
+programação imperativas, como é o caso do C, predomina esta forma de ambientes
+de execução e tais usos são mesmo um risco de segurança para a aplicação.
+
+Mas existe outra classe de linguagens de programação que faz uso corriqueiro
+deste recurso, como uma forma de generalizar tanto quanto possível o código
+escrito, maximizando assim seu reaproveitamento: linguagens de programação
+funcionais como LISP e Haskell.
+
+---
+
+Considere o seguinte código em Haskell:
+
+```haskell
+-- Define-se uma função soma, que armazena um valor local x;
+SomaX :: Int -> Int -> Int
+SomaX x = \y -> x + y  -- Retorna uma função que armazena o valor de X
+
+-- Reaproveita-se esta última para uma função de incremento pré-estabelecido;
+  `somaCinco`;somaCinco :: Int -> Int
+somaCinco = addX 5
+
+-- Finalmente esta é utilizada para somar 10 a 5, produzindo o resultado 15.
+resultado :: Int
+resultado = somaCinco 10
+```
+
+Este é um uso aceitável em Haskell, mas impossível na linguagem C, pois a pilha
+referente a função `somaCinco` seria liberada após esta ser inicializada com o
+valor `5`, assim descartando-o. Isso só passa a ser possível com o uso de
+**ambientes de execução totalmente dinâmicos**.
+
+### Coleta de lixo (Garbage collection)
+
+O que caracteriza um ambiente de execução totalmente dinâmico é sua abordagem
+relativamente mais complexa para o gerenciamento de memória, que descarta o uso
+da pilha e faz uso exclusivo do heap para o armazenamento de dados. Neste,
+continua a se fazer uso de registros de ativação, e com os mesmos parâmetros
+vistos anteriormente para veiculação de acesso e controle; mas registros de
+ativação permanecem armazenados em memória enquanto perdurarem referências a
+estes. Isto vem a requerer
+
+- o acompanhamento das referências durante a execução;
+- capacidade para encontrar e liberar porções da memória já inacessíveis em
+  instantes arbitrários durante a execução.
+
+Este processo é denominado **coleta de lixo** (_garbage collection_).
+
+#### Marcar e correr (_mark and sweep_)
+
+O uso de `malloc` e `free` para a alocação e liberação dinâmica da memória
+trata-se do método manual daquilo que a coleta de lixo se propõe a realizar
+automaticamente a cada sequência de ativação. E o algoritmo predominantemente
+utilizado para a busca e decisão dos registros de memória a serem alocados ou
+liberados é denominado **marcar e varrer**. Seu funcionamento nós descrevemos à
+seguir:
+
+---
+
+A cada sequência de ativação, ocorrem duas passadas pelo _heap_.
+
+Na primeira passada:
+
+- Percorre-se todos os ponteiros ao heap recursivamente;
+
+> [!NOTE] Noutras palavras,
+>
+> ponteiros que referenciam objetos no heap e ponteiros que estes objetos
+> possuem para outros objetos, sucessivamente);
+
+- Marca-se cada bloco acessado desta forma com um bit de validação, indicando
+  que este é "alcançável".
+
+---
+
+Na segunda passada:
+
+- Percorre-se o _heap_ linearmente, liberando a memória de todos os blocos que
+  não foram marcados como sendo alcançáveis.
+
+- O novo registro de ativação é armazenado no primeiro bloco de memória a
+  satisfazer seu requerimento de memória, **se este houver**.
+
+---
+
+Nos casos em que o requerimento de memória não é satisfeito, ocorre uma terceira
+passada:
+
+- Toda a memória ocupada no heap é compactado em endereços de memória no extremo
+  oposto do deste, e todos os ponteiros de referência têm seus valores
+  atualizados de forma correspondente.
+
+#### Contrapontos ao uso de coleta de lixo
+
+Embora facilitadora ao programador, o uso de coleta de lixo apresenta alguns
+problemas:
+
+1. Requer memória adicional para marcar blocos enquanto alcançáveis ou não.
+2. Requer pelo menos duas passadas pela memória _heap_ a cada sequência de
+   ativação, o que leva a notável atraso de processamento especialmente em
+   aplicações que necessitam de rápida resposta, ou resposta em tempo real.
+
+#### Otimizações
+
+##### Parar e copiar
+
+Nesta, o heap é dividido em duas regiões de tamanho variável: a primeira possui
+blocos ocupados e a segunda um bloco contíguo de memória livre. A cada sequência
+de ativação,
+
+- O novo registro de ativação é alocado no endereço do bloco livre;
+- Percorre-se o o região dos blocos ocupados como se fosse marcá-los, mas en vez
+  disso se copia a todo bloco alcançado para uma posição consecutiva ao último
+  bloco adicionado a região livre.
+- Troca-se os papeis: a região livre passa a ser a região ocupada e a região
+  ocupada anterior passa a ser a região livre.
+
+São os benefícios desta otimização:
+
+- Não dispende dados adicionais para marcação de blocos
+- Compacta memória a cada sequência de ativação
+
+Por outro lado, maiores ganhos de desempenho são perdidos pela necessidade
+adicional de se copiar dados a cada iteração.
+
+##### Coleta de Lixo Gerativa
+
+Uma otimização adicional sobre a _parar e copiar_ consiste na divisão da memória
+em três partes para acréscimo de uma região para armazenamento permanente.
+Nesta, os registros mantidos após uma dada quantidade de sequências de ativação
+são adicionados a esta terceira região pela duração total do programa.
+
+O benefício desta otimização é que desta forma apenas registros temporários
+restam para serem copiados entre regiões de memória, mas estes são mais
+frequentemente descartados. Muito embora desta forma um registro que pode não
+mais ser utilizado pode chegar a memória permanente, dada uma sequência de
+ativações inicial favorável, tendencialmente a perda de memória é conraposta por
+grande ganho de desempenho.
 
 ## Mecanismos para passagem de parâmetros
+
+## Conclusão
