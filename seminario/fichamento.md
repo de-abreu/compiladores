@@ -33,6 +33,8 @@
 - [Conclusão](#conclusão)
   <!--toc:end-->
 
+<!--Inicio da parte da Laura -->
+
 ## Introdução
 
 Para que um programa seja executável, faz-se necessária a presença de uma
@@ -207,6 +209,8 @@ que os compõem são detalhadas à seguir:
 - Atribuição do valor de _fp_ para _sp_;
 - Atribuição do valor de _old fp_ para _fp_;
 - Atribuição do endereço de retorno ao _pc_.
+
+<!--Início da parte do Hélio-->
 
 #### Dados de comprimento variável
 
@@ -389,6 +393,8 @@ execução:
 
 ![Registros de controle empilhados, ligados entre si por vinculação de
 controle](images/snapshot_2025-05-15_18-48-28.png)
+
+ <!--Início da parte da Sandy-->
 
 ### Ambientes de execução baseados em pilha com procedimentos locais
 
@@ -583,6 +589,8 @@ globais, mesmo para armazenar valores temporários da função `QUADMEAN`.
 Para o programa anterior, teríamos o seguinte ambiente de execução:
 
 ![Ambiente de execução do programa `TEST`](images/snapshot_2025-05-16_16-44-35.png)
+
+<!--Início da parte do Abreu-->
 
 ## Ambientes de execução totalmente dinâmicos
 
