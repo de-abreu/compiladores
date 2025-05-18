@@ -188,6 +188,8 @@ execução, são estes:
 > utilizado para indicar a posição na pilha de uma argumento a ser acessado que
 > foi armazenado na pilha.
 
+<!--Início da parte do Hélio-->
+
 #### Sequências de ativação e retorno
 
 Também denominadas enquanto o _prólogo_ e _epílogo_, são conjuntos de operações
@@ -209,8 +211,6 @@ que os compõem são detalhadas à seguir:
 - Atribuição do valor de _fp_ para _sp_;
 - Atribuição do valor de _old fp_ para _fp_;
 - Atribuição do endereço de retorno ao _pc_.
-
-<!--Início da parte do Hélio-->
 
 #### Dados de comprimento variável
 
@@ -259,7 +259,7 @@ end Sum;
 Uma possível representação da organização de memória para o ambiente de execução
 do programa anterior seria:
 
-![Ambiente de execução com um vetor de inteiros](snapshot_2025-05-16_13-36-58.png)
+![Ambiente de execução com um vetor de inteiros](images/snapshot_2025-05-16_13-36-58.png)
 
 Assim, um dado elemento `A[i]` pode ser obtido a partir do de um deslocamento
 com relação a _fp_, para todo `i < 10`.
@@ -302,8 +302,8 @@ de uma LLC definidos como:
 Sendo:
 
 - `next`: um ponteiro para o nó seguinte
-- `usedsize`: O tamanho da memória consumida entre o nó presente e o seguinte
-- `freesize`: O tamanho da memória disponível entre o nó presente e o seguinte
+- `usedsize`: O tamanho da memória consumida entre o nó presente
+- `freesize`: O tamanho da memória disponível entre o nó presente
 
 Estes acompanhados de segmentos de memória ocupado e livre, respectivamente, de
 tamanho variável.
@@ -315,6 +315,8 @@ inicial da LLC. O `memptr` é tal que ao final de cada alocação ou liberação
 **sempre** para um bloco de memória com algum espaço disponível.
 
 ![Estado inicial do _heap_](images/snapshot_2025-05-16_20-01-54.png)
+
+ <!--Início da parte da Sandy-->
 
 ##### Alocação
 
@@ -394,8 +396,6 @@ execução:
 ![Registros de controle empilhados, ligados entre si por vinculação de
 controle](images/snapshot_2025-05-15_18-48-28.png)
 
- <!--Início da parte da Sandy-->
-
 ### Ambientes de execução baseados em pilha com procedimentos locais
 
 Em linguagens de programação em que funções podem ser aninhadas, como _Pascal_
@@ -456,6 +456,8 @@ Do programa anterior resultaria a seguinte organização da memória no ambiente
 execução:
 
 ![Exemplo de ambiente de execução com procedimentos locais](images/snapshot_2025-05-16_14-53-45.png)
+
+<!--Inicio da parte do Theo-->
 
 ### Ambientes baseados em pilhas com parâmetros de procedimentos
 
@@ -590,8 +592,6 @@ Para o programa anterior, teríamos o seguinte ambiente de execução:
 
 ![Ambiente de execução do programa `TEST`](images/snapshot_2025-05-16_16-44-35.png)
 
-<!--Início da parte do Abreu-->
-
 ## Ambientes de execução totalmente dinâmicos
 
 Por vez, ambientes de execução baseados em pilha apresentam eles próprios
@@ -650,6 +650,8 @@ Este é um uso aceitável em Haskell, mas impossível na linguagem C, pois a pil
 referente a função `somaCinco` seria liberada após esta ser inicializada com o
 valor `5`, assim descartando-o. Isso só passa a ser possível com o uso de
 **ambientes de execução totalmente dinâmicos**.
+
+<!--Inicio da parte do Abreu-->
 
 ### Coleta de lixo (Garbage collection)
 
