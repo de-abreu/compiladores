@@ -2,11 +2,16 @@
 
 Para que um programa seja executável, faz-se necessária a presença de uma
 estrutura pela qual se dá o gerenciamento de memoria e a manutenção das
-informações por ele requeridas: um **ambiente de execução**. É o objetivo deste
-seminário explicitar os mecanismos pelos quais um ambiente de execução pode ser
-criado e manipulado.
+informações por ele requeridas: um **ambiente de execução**. Não apenas isso,
+mas a escolha do ambiente de execução impacta diretamente sobre o desempenho
+deste e as funcionalidades oferecidas pela linguagem de programação com a qual
+foi escrito.
 
-Isto, a partir de um resumo do capítulo 7 da obra de Kenneth C. Louden (2004),
+É o objetivo deste seminário explicitar os mecanismos pelos quais um ambiente de
+execução pode ser criado e manipulado. Além de abarcar os principais tipos de
+ambientes de execução disponíveis atualmente.
+
+Para tal, fazemo um resumo do capítulo 7 da obra de Kenneth C. Louden (2004),
 _Compiladores: princípios e práticas_, que versa sobre o tema.
 
 ---
@@ -581,8 +586,8 @@ SomaX :: Int -> Int -> Int
 SomaX x = \y -> x + y  -- Retorna uma função que armazena o valor de X
 
 -- Reaproveita-se esta última para uma função de incremento pré-estabelecido;
-  `somaCinco`;somaCinco :: Int -> Int
-somaCinco = addX 5
+somaCinco :: Int -> Int
+somaCinco = SomaX 5
 
 -- Finalmente esta é utilizada para somar 10 a 5, produzindo o resultado 15.
 resultado :: Int
@@ -698,9 +703,24 @@ O benefício desta otimização é que desta forma apenas registros temporários
 restam para serem copiados entre regiões de memória, mas estes são mais
 frequentemente descartados. Muito embora desta forma um registro que pode não
 mais ser utilizado pode chegar a memória permanente, dada uma sequência de
-ativações inicial favorável, tendencialmente a perda de memória é conraposta por
-grande ganho de desempenho.
-
-## Mecanismos para passagem de parâmetros
+ativações inicial favorável, tendencialmente a perda de memória é contraposta
+por grande ganho de desempenho.
 
 ## Conclusão
+
+Abarcamos os três principais ambientes de execução que fundamentam a uma
+variedade de linguagens programação. Foram estes, em ordem de crescente
+complexidade, o **totalmente estático**, o **baseado em pilhas** e o
+**totalmente dinâmicos**. Nota-se que ambientes de execução mais complexos
+conferem a linguagem de programação que os implementa maior funcionalidade e
+flexibilidade. Enquanto, por outro lado, estes incorrem em perda de desempenho
+dado um número maior de recursos destinados a controlar e acompanhar o estado de
+execução do programa.
+
+A diversidade dos ambientes de execução destaca a adaptabilidade das linguagens
+de programação às diferentes necessidades computacionais. À medida que os
+sistemas de software se tornam mais complexos, a interação entre esses ambientes
+continua a evoluir, impulsionada pelos imperativos duplos de **eficiência** e
+**expressividade**. Compreender essas compensações capacita a cientistas da
+computação e desenvolvedores de linguagens a fazer escolhas informadas,
+equilibrando as demandas de desempenho, segurança e usabilidade em seu trabalho.
