@@ -1,11 +1,46 @@
 # Ambientes de Execução (_Runtime Environments_)
 
+<!--toc:start-->
+
+- [Introdução](#introdução)
+- [Ambientes de execução baseados em pilhas](#ambientes-de-execução-baseados-em-pilhas)
+- [Aspectos gerais de ambientes de execução baseados em pilha](#aspectos-gerais-de-ambientes-de-execução-baseados-em-pilha)
+  - [Regiões de memória](#regiões-de-memória)
+  - [Registradores](#registradores)
+  - [Sequências de ativação e retorno](#sequências-de-ativação-e-retorno)
+    - [Sequência de ativação](#sequência-de-ativação)
+    - [Sequência de retorno](#sequência-de-retorno)
+  - [Dados de comprimento variável](#dados-de-comprimento-variável)
+    - [Exemplo](#exemplo-dados-de-comprimento-variável)
+  - [Gerenciamento de _heap_](#gerenciamento-de-heap)
+    - [Alocação](#alocação)
+    - [Liberação](#liberação)
+- [Ambientes de execução baseados em pilha sem procedimentos locais](#ambientes-de-execução-baseados-em-pilha-sem-procedimentos-locais)
+  - [Exemplo](#exemplo-ambientes-sem-procedimentos-locais)
+- [Ambientes de execução baseados em pilha com procedimentos locais](#ambientes-de-execução-baseados-em-pilha-com-procedimentos-locais)
+  - [Exemplo](#exemplo-ambientes-com-procedimentos-locais)
+- [Ambientes baseados em pilhas com parâmetros de procedimentos](#ambientes-baseados-em-pilhas-com-parâmetros-de-procedimentos)
+  - [Exemplo](#exemplo-ambientes-com-parâmetros-de-procedimentos)
+- [Ambientes de execução totalmente estáticos](#ambientes-de-execução-totalmente-estáticos)
+- [Exemplo](#exemplo-ambientes-de-execução-totalmente-estáticos)
+- [Ambientes de execução totalmente dinâmicos](#ambientes-de-execução-totalmente-dinâmicos)
+- [Coleta de lixo (Garbage collection)](#coleta-de-lixo-garbage-collection)
+  - [Marcar e correr (_mark and sweep_)](#marcar-e-correr-mark-and-sweep)
+  - [Contrapontos ao uso de coleta de lixo](#contrapontos-ao-uso-de-coleta-de-lixo)
+  - [Otimizações](#otimizações)
+    - [Parar e copiar](#parar-e-copiar)
+    - [Coleta de Lixo Gerativa](#coleta-de-lixo-gerativa)
+- [Conclusão](#conclusão)
+  <!--toc:end-->
+
+## Introdução
+
 Para que um programa seja executável, faz-se necessária a presença de uma
-estrutura pela qual se dá o gerenciamento de memoria e a manutenção das
+estrutura pela qual se dá o gerenciamento de memória e a manutenção das
 informações por ele requeridas: um **ambiente de execução**. Não apenas isso,
-mas a escolha do ambiente de execução impacta diretamente sobre o desempenho
-deste e as funcionalidades oferecidas pela linguagem de programação com a qual
-foi escrito.
+mas a escolha do ambiente de execução impacta diretamente o desempenho deste e
+as funcionalidades oferecidas pela linguagem de programação com a qual foi
+escrito.
 
 É o objetivo deste seminário explicitar os mecanismos pelos quais um ambiente de
 execução pode ser criado e manipulado. Além de abarcar os principais tipos de
@@ -195,6 +230,8 @@ registrando-se respetivos comprimentos e deslocamentos dos endereços de memóri
 - Armazenar na pilha informações de **tamanho** e **quantidade** de elementos,
   para cada tipo de argumento de comprimento variável armazenado.
 
+<a id="exemplo-dados-de-comprimento-variável"></a>
+
 ##### Exemplo
 
 O seguinte trecho de código, escrito na linguagem Ada, representa um algoritmo
@@ -316,9 +353,11 @@ A cada invocação de `free`,
 Nas linguagens de programação em que todos as funções são globais (como a
 linguagem C), em termos de controle da execução, faz-se necessário registrar
 apenas os endereços do registro de ativação corrente e daquele imediatamente
-anterior. Para tal faz-se uso de dois registradores: _fp_ e mais outro
-denominado _vinculação de controle_, ou _fp old_, cujo valor é armazenado nos
-dados locais à função corrente.
+anterior. Para tal, faz-se uso de dois registradores: _fp_ e outro denominado
+_vinculação de controle_, ou _fp old_, cujo valor é armazenado nos dados locais
+à função corrente.
+
+<a id="exemplo-ambientes-sem-procedimentos-locais"></a>
 
 #### Exemplo
 
@@ -360,6 +399,8 @@ memória apresentada necessita de ser acrecida de uma nova variável de controle
 a ser armazenada no registro de ativação: a _vinculação de acesso_. Esta trata
 do armazenamento, no registro de ativação da função chamada, do endereço na
 pilha do registro da função que a declarou.
+
+<a id="exemplo-ambientes-com-procedimentos-locais"></a>
 
 #### Exemplo
 
@@ -425,6 +466,8 @@ enquanto parâmetro. Neste contexto, o ponteiro de código e ponteiro de
 vinculação de acesso são denominados um par de **ponteiro de instrução**
 (_instruction pointer_ `ip`) e **ponteiro de ambiente** (_environment pointer_,
 `ep`): `<ip, ep>`.
+
+<a id="exemplo-ambientes-com-parâmetros-de-procedimentos"></a>
 
 #### Exemplo
 
@@ -499,6 +542,8 @@ da seguinte maneira:
 
 ![Diagrama da organização de memória de um ambiente de execução totalmente
 estático](images/snapshot_2025-05-14_09-57-59.png)
+
+<a id="exemplo-ambientes-de-execução-totalmente-estáticos"></a>
 
 ### Exemplo
 
@@ -616,12 +661,11 @@ Este processo é denominado **coleta de lixo** (_garbage collection_).
 
 #### Marcar e correr (_mark and sweep_)
 
-O uso de `malloc` e `free` para a alocação e liberação dinâmica da memória
-trata-se do método manual daquilo que a coleta de lixo se propõe a realizar
-automaticamente a cada sequência de ativação. E o algoritmo predominantemente
-utilizado para a busca e decisão dos registros de memória a serem alocados ou
-liberados é denominado **marcar e varrer**. Seu funcionamento nós descrevemos à
-seguir:
+O uso de `malloc` e `free` para a alocação e liberação dinâmica da memória é o
+método manual daquilo que a coleta de lixo se propõe a realizar automaticamente
+a cada sequência de ativação. E o algoritmo predominantemente utilizado para a
+busca e decisão dos registros de memória a serem alocados ou liberados é
+denominado **marcar e varrer**. Seu funcionamento nós descrevemos à seguir:
 
 ---
 
@@ -700,17 +744,17 @@ são adicionados a esta terceira região pela duração total do programa.
 
 O benefício desta otimização é que desta forma apenas registros temporários
 restam para serem copiados entre regiões de memória, mas estes são mais
-frequentemente descartados. Muito embora desta forma um registro que pode não
-mais ser utilizado pode chegar a memória permanente, dada uma sequência de
-ativações inicial favorável, tendencialmente a perda de memória é contraposta
-por grande ganho de desempenho.
+frequentemente descartados. Embora, dessa forma, um registro que não seja mais
+utilizado possa chegar à memória permanente, dada uma sequência de ativações
+inicial favorável, a perda de memória tende a ser contraposta por um grande
+ganho de desempenho.
 
 ## Conclusão
 
 Abarcamos os três principais ambientes de execução que fundamentam a uma
 variedade de linguagens programação. Foram estes, em ordem de crescente
 complexidade, o **totalmente estático**, o **baseado em pilhas** e o
-**totalmente dinâmicos**. Nota-se que ambientes de execução mais complexos
+**totalmente dinâmico**. Nota-se que ambientes de execução mais complexos
 conferem a linguagem de programação que os implementa maior funcionalidade e
 flexibilidade. Enquanto, por outro lado, estes incorrem em perda de desempenho
 dado um número maior de recursos destinados a controlar e acompanhar o estado de
