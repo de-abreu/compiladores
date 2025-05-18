@@ -11,8 +11,9 @@ foi escrito.
 execução pode ser criado e manipulado. Além de abarcar os principais tipos de
 ambientes de execução disponíveis atualmente.
 
-Para tal, fazemo um resumo do capítulo 7 da obra de Kenneth C. Louden (2004),
-_Compiladores: princípios e práticas_, que versa sobre o tema.
+Para tal, fizemos um resumo do capítulo 7 da obra de Kenneth C. Louden (2004),
+_Compiladores: princípios e práticas_, naqueles que consideramos ser os
+principais tópicos sobre o tema.
 
 ---
 
@@ -349,8 +350,6 @@ execução:
 
 ![Registros de controle empilhados, ligados entre si por vinculação de
 controle](images/snapshot_2025-05-15_18-48-28.png)
-
----
 
 ### Ambientes de execução baseados em pilha com procedimentos locais
 
