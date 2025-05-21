@@ -731,7 +731,7 @@ blocos ocupados e a segunda um bloco contíguo de memória livre. A cada sequên
 de ativação,
 
 - O novo registro de ativação é alocado no endereço do bloco livre;
-- Percorre-se o o região dos blocos ocupados como se fosse marcá-los, mas en vez
+- Percorre-se o o região dos blocos ocupados como se fosse marcá-los, mas em vez
   disso se copia a todo bloco alcançado para uma posição consecutiva ao último
   bloco adicionado a região livre.
 - Troca-se os papeis: a região livre passa a ser a região ocupada e a região
